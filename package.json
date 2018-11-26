@@ -9,7 +9,7 @@
     "build:clean": "rimraf build",
     "build:webpack": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "tslint -c tslint.json -p tsconfig.json ./src/**/*.{actions.ts,sagas.ts,api.ts,types.ts,reducer.ts,ts,tsx}"
+    "lint": "tslint -c tslint.json -p tsconfig.json ./src/**/*.{actions.ts,sagas.ts,api.ts,types.ts,reducers.ts,ts,tsx}"
   },
   "author": "",
   "dependencies": {
@@ -39,15 +39,16 @@
     "html-webpack-plugin": "3.2.0",
     "less": "3.8.1",
     "less-loader": "4.1.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "4.10.0",
     "prettier": "1.14.3",
     "rimraf": "2.6.2",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "7.1.0",
     "source-map-loader": "0.2.4",
     "style-loader": "0.23.1",
     "ts-loader": "5.2.2",
     "tslint": "5.11.0",
     "tslint-config-prettier": "1.15.0",
+    "tslint-consistent-codestyle": "1.14.1",
     "tslint-react": "3.6.0",
     "typescript": "3.1.6",
     "webpack": "4.23.1",

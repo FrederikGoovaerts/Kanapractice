@@ -4,12 +4,14 @@
     "tslint-react",
     "tslint-config-prettier"
   ],
+  "rulesDirectory": ["tslint-consistent-codestyle"],
   "rules": {
     "no-submodule-imports": [true, "@material-ui", "redux-saga"],
     "interface-name": false,
     "no-console": false,
     "no-namespace": false,
     "member-access": false,
+    "no-unused": true,
     "jsx-boolean-value": ["never"]
   }
 }
