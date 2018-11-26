@@ -1,6 +1,6 @@
 import './CharacterList.scss';
 
-import { Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import * as React from 'react';
 
 import { Character, CharacterGroup } from '../../types';
@@ -13,20 +13,22 @@ interface Props {
 }
 
 export const CharacterList = (props: Props) => (
-  <div className="characterList-outerContainer">
-    <div className="characterList-innerContainer">
+  <div className="characterList-container">
+    <Grid container direction="column" alignItems="center" spacing={16}>
       {props.characters.map((group: CharacterGroup) => (
-        <div className="characterList-group" key={group.name}>
+        <Grid container item direction="row" justify="space-between" spacing={16} key={group.name}>
           {group.characters.map((character: Character) => (
-            <CharacterCard
-              key={character.roumaji}
-              character={character}
-              onSelect={props.onSelect}
-              selected={props.selected.includes(character.id)}
-            />
+            <Grid item key={character.id}>
+              <CharacterCard
+                key={character.roumaji}
+                character={character}
+                onSelect={props.onSelect}
+                selected={props.selected.includes(character.id)}
+              />
+            </Grid>
           ))}
-        </div>
+        </Grid>
       ))}
-    </div>
+    </Grid>
   </div>
 );
