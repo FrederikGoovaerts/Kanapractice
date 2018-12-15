@@ -13,5 +13,11 @@ export interface Character {
   id: string;
   roumaji: string;
   kanji: string;
-  sound?: HTMLAudioElement;
+  derived?: DerivedCharacter[];
+}
+
+export interface DerivedCharacter {
+  id: string;
+  roumaji: string;
+  kanji: string;
 }

@@ -11,18 +11,19 @@ interface Props {
   selected: boolean;
 }
 
-const playSound = (character: Character) => () => {
-  if (character.sound) {
-    character.sound.play();
-  }
-};
+// TODO: Use this later
+// const playSound = (character: Character) => () => {
+//   if (character.sound) {
+//     character.sound.play();
+//   }
+// };
 
 export const CharacterCard = ({ character, onSelect, selected }: Props) => {
   const select = () => onSelect(character.id);
   return (
     <Card className="characterCard-card" onClick={select}>
       <Checkbox value={character.id} checked={selected} />
-      <div className="characterCard-contents" onClick={playSound(character)}>
+      <div className="characterCard-contents">
         <Typography variant="h2">{character.kanji}</Typography>
         <Typography variant="h5">/{character.roumaji}/</Typography>
       </div>
