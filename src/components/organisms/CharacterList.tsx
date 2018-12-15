@@ -12,12 +12,6 @@ interface Props {
   selected: string[];
 }
 
-const dummyCard = (key: string) => (
-  <Grid item key={key}>
-    <div className="characterCard-card" />
-  </Grid>
-);
-
 export class CharacterList extends React.Component<Props> {
   renderCharacter(character: Character) {
     return (
@@ -33,19 +27,10 @@ export class CharacterList extends React.Component<Props> {
   }
 
   renderGroup(group: CharacterGroup) {
-    let dummyCounter = 0;
     const cardList = group.characters.map((character: Character) => this.renderCharacter(character));
 
-    // When life gives you lemons ¯\_(ツ)_/¯
-    if (cardList.length < 5) {
-      cardList.splice(1, 0, dummyCard(String(dummyCounter++)));
-    }
-    while (cardList.length < 5) {
-      cardList.splice(-1, 0, dummyCard(String(dummyCounter++)));
-    }
-
     return (
-      <Grid container item direction="row" justify="center" spacing={16} key={group.name}>
+      <Grid container item direction="row" justify="space-between" spacing={16} key={group.name}>
         {cardList}
       </Grid>
     );
