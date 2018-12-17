@@ -18,7 +18,8 @@ export const CharacterCard = ({ character, onSelect, selected }: Props) => {
   return (
     <Card className="characterCard-card">
       <CharacterCardContents selected={selected} character={character} select={select} />
-      {!!character.derived && character.derived.length > 0 && <AlternativeCharacterPopover />}
+      {!!character.derived &&
+        character.derived.length > 0 && <AlternativeCharacterPopover derived={character.derived} />}
     </Card>
   );
 };
