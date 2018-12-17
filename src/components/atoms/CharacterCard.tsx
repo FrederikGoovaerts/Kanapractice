@@ -1,9 +1,11 @@
 import './CharacterCard.scss';
 
-import { Card, Checkbox, Typography } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 import * as React from 'react';
 
 import { Character } from '../../types';
+import { AlternativeCharacterPopover } from './AlternativeCharacterPopover';
+import { CharacterCardContents } from './CharacterCardContents';
 
 interface Props {
   character: Character;
@@ -11,22 +13,12 @@ interface Props {
   selected: boolean;
 }
 
-// TODO: Use this later
-// const playSound = (character: Character) => () => {
-//   if (character.sound) {
-//     character.sound.play();
-//   }
-// };
-
 export const CharacterCard = ({ character, onSelect, selected }: Props) => {
   const select = () => onSelect(character.id);
   return (
-    <Card className="characterCard-card" onClick={select}>
-      <Checkbox value={character.id} checked={selected} />
-      <div className="characterCard-contents">
-        <Typography variant="h2">{character.kanji}</Typography>
-        <Typography variant="h5">/{character.roumaji}/</Typography>
-      </div>
+    <Card className="characterCard-card">
+      <CharacterCardContents selected={selected} character={character} select={select} />
+      {!!character.derived && character.derived.length > 0 && <AlternativeCharacterPopover />}
     </Card>
   );
 };
