@@ -6,7 +6,7 @@ import { routes } from '../../config/constants';
 import { hiragana } from '../../resources/hiragana';
 import { hiraganaActions } from '../../store/actions';
 import { RootState } from '../../store/reducers';
-import { getSelectedHiragana } from '../../store/selectors/hiragana.selectors';
+import { getSelectedAndDerivedHiragana } from '../../store/selectors/hiragana.selectors';
 import { Character } from '../../types';
 import { CharacterList } from '../organisms/CharacterList';
 import { FlashCards } from '../organisms/FlashCards';
@@ -48,7 +48,7 @@ class HiraganaRaw extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  selectedCharacters: getSelectedHiragana(state),
+  selectedCharacters: getSelectedAndDerivedHiragana(state),
   selectedIds: state.hiragana.selected,
 });
 

@@ -6,6 +6,9 @@ import { RootState } from '../reducers';
 
 const getSelectedIds = (state: RootState) => state.hiragana.selected;
 
-export const getSelectedHiragana = createSelector(getSelectedIds, selectedIds =>
-  flatMap(hiragana, g => g.characters.filter(c => selectedIds.includes(c.id))),
+export const getSelectedAndDerivedHiragana = createSelector(getSelectedIds, selectedIds =>
+  flatMap(
+    flatMap(hiragana, g => g.characters.filter(c => selectedIds.includes(c.id))),
+    c => (c.derived ? [c, ...c.derived] : [c]),
+  ),
 );

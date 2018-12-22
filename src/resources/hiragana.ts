@@ -183,7 +183,7 @@ export const hiragana: CharacterGroup[] = hiraganaRaw.map(group => ({
   })),
 }));
 
-export const hiraganaIds: string[] = ([] as string[]).concat(
+export const baseHiraganaIds: string[] = ([] as string[]).concat(
   ...hiragana.map(group => group.characters.map(character => character.id)),
 );
 
