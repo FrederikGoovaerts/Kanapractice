@@ -1,4 +1,4 @@
-import { CharacterGroup, BaseCharacter, RawCharacterGroup } from '../types';
+import { BaseCharacter, CharacterGroup, RawCharacterGroup } from '../types';
 
 const hiraganaRaw: RawCharacterGroup[] = [
   {

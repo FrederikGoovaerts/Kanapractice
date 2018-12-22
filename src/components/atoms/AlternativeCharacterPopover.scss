@@ -2,3 +2,13 @@
   display: flex;
   justify-content: center;
 }
+
+.alternativeCharacterPopover-popover {
+  display: flex;
+  flex-direction: row;
+}
+
+.alternativeCharacterPopover-contents {
+  min-width: 8em;
+  margin-top: 1em
+}

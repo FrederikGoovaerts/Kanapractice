@@ -1,8 +1,9 @@
 import './AlternativeCharacterPopover.scss';
 
-import { Button, Popover, Typography } from '@material-ui/core';
+import { Button, Popover } from '@material-ui/core';
 import * as React from 'react';
 import { BaseCharacter } from '../../types';
+import { CharacterCardContents } from './CharacterCardContents';
 
 interface Props {
   derived: BaseCharacter[];
@@ -48,7 +49,13 @@ export class AlternativeCharacterPopover extends React.Component<Props, State> {
             vertical: 'bottom',
           }}
         >
-          <Typography>{this.props.derived.map(char => char.id).join(',')}</Typography>
+          <div className="alternativeCharacterPopover-popover">
+            {this.props.derived.map(char => (
+              <div className="alternativeCharacterPopover-contents" key={char.id}>
+                <CharacterCardContents character={char} />
+              </div>
+            ))}
+          </div>
         </Popover>
       </div>
     );
