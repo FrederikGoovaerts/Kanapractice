@@ -1,0 +1,15 @@
+.characterList-outerContainer {
+  display: flex;
+  justify-content: center;
+}
+.characterList-innerContainer {
+  display: inline-flex;
+  flex-direction: column;
+}
+.characterList-group {
+  display: flex;
+  flex-direction: row;
+  margin: 2em 0;
+  justify-content: space-between;
+
+}
