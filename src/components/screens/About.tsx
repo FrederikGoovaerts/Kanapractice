@@ -18,6 +18,15 @@ export const About = () => (
       <div className="about-title">
         <Typography variant="h4">Changelog</Typography>
       </div>
+      <Typography variant="h5">0.3.0</Typography>
+      <ul>
+        <li>
+          <Typography>Added quick reading practice page</Typography>
+        </li>
+        <li>
+          <Typography>Added tooltips in the drawer explaining the use of each page</Typography>
+        </li>
+      </ul>
       <Typography variant="h5">0.2.0</Typography>
       <Typography>Decided to go for a restyle.</Typography>
       <ul>

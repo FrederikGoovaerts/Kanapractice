@@ -2,25 +2,19 @@ import './FlashCards.scss';
 
 import { Switch, Typography } from '@material-ui/core';
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { routes } from '../../config/constants';
-import { RootState } from '../../store/reducers';
-import { getSelectedHiragana } from '../../store/selectors/hiragana.selectors';
 import { Character } from '../../types';
-import { randomArrayElement } from '../../util/ArrayUtils';
+import { RandomCharacterGenerator } from '../../util/RandomCharacterGenerator';
 import { FlashCard } from '../molecules/FlashCard';
-
-const defaultRecentCharactersSize = 5;
 
 interface Props {
   characters: Character[];
 }
 
 interface State {
-  currentCharacter: Character;
-  recentCharacterIds: string[];
+  currentCharacter: Character | undefined;
   answerShown: boolean;
   inverse: boolean;
 }
@@ -34,19 +28,17 @@ const noCharactersPlaceHolder = (
   </div>
 );
 
-class FlashCardsRaw extends React.Component<Props, State> {
+export class FlashCards extends React.Component<Props, State> {
+  private randomCharacterGenerator: RandomCharacterGenerator;
+
   constructor(props: Props) {
     super(props);
-    const firstCharacter = randomArrayElement(this.props.characters);
-    this.state = { currentCharacter: firstCharacter, recentCharacterIds: [], answerShown: false, inverse: false };
-  }
-
-  getRecentCharacterSize() {
-    return Math.min(defaultRecentCharactersSize, Math.floor(this.props.characters.length / 2));
-  }
-
-  nextCharacter() {
-    return randomArrayElement(this.props.characters.filter(el => !this.state.recentCharacterIds.includes(el.id)));
+    this.randomCharacterGenerator = new RandomCharacterGenerator(props.characters);
+    this.state = {
+      answerShown: false,
+      currentCharacter: this.randomCharacterGenerator.nextCharacter(),
+      inverse: false,
+    };
   }
 
   onShowAnswer = () => {
@@ -54,14 +46,7 @@ class FlashCardsRaw extends React.Component<Props, State> {
   };
 
   onNext = () => {
-    const { currentCharacter, recentCharacterIds } = this.state;
-    const newRecentCharacterIds = [currentCharacter.id, ...recentCharacterIds];
-    if (newRecentCharacterIds.length > this.getRecentCharacterSize()) {
-      newRecentCharacterIds.pop();
-    }
-    this.setState({ recentCharacterIds: newRecentCharacterIds }, () =>
-      this.setState({ currentCharacter: this.nextCharacter(), answerShown: false }),
-    );
+    this.setState({ currentCharacter: this.randomCharacterGenerator.nextCharacter(), answerShown: false });
   };
 
   toggleInverse = () => {
@@ -74,27 +59,23 @@ class FlashCardsRaw extends React.Component<Props, State> {
       return noCharactersPlaceHolder;
     }
     return (
-      <div>
-        <div className="flashCards-toggleContainer">
-          <Switch checked={!this.state.inverse} onChange={this.toggleInverse} />
-          <Typography>To roumaji</Typography>
+      currentCharacter && (
+        <div>
+          <div className="flashCards-toggleContainer">
+            <Switch checked={!this.state.inverse} onChange={this.toggleInverse} />
+            <Typography>To roumaji</Typography>
+          </div>
+          <div className="flashCards-card">
+            <FlashCard
+              answerShown={answerShown}
+              character={currentCharacter}
+              inverse={inverse}
+              onNext={this.onNext}
+              onShowAnswer={this.onShowAnswer}
+            />
+          </div>
         </div>
-        <div className="flashCards-card">
-          <FlashCard
-            answerShown={answerShown}
-            character={currentCharacter}
-            inverse={inverse}
-            onNext={this.onNext}
-            onShowAnswer={this.onShowAnswer}
-          />
-        </div>
-      </div>
+      )
     );
   }
 }
-
-const mapStateToProps = (state: RootState) => ({
-  characters: getSelectedHiragana(state),
-});
-
-export const FlashCards = connect(mapStateToProps)(FlashCardsRaw);

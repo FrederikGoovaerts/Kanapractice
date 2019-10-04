@@ -1,0 +1,17 @@
+.quickReading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 15em;
+}
+
+.quickReading-resultsOuter {
+  height: 3em;
+}
+
+.quickReading-resultsInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
