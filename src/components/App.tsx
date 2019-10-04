@@ -11,6 +11,7 @@ import { Loader } from './molecules/Loader';
 import { NavigationHeader } from './molecules/NavigationHeader';
 import { About } from './screens/About';
 import { Hiragana } from './screens/Hiragana';
+import { Katakana } from './screens/Katakana';
 
 interface TMapProps {
   initialized: boolean;
@@ -28,7 +29,7 @@ class App extends React.Component<TProps> {
   }
 
   hiragana = ({ match }: RouteComponentProps<any>) => <Hiragana match={match} />;
-  katakana = () => <div>Katakana</div>;
+  katakana = ({ match }: RouteComponentProps<any>) => <Katakana match={match} />;
   numbers = () => <div>Numbers</div>;
   about = () => <About />;
 
@@ -43,7 +44,7 @@ class App extends React.Component<TProps> {
             <div className="app-innerContainer">
               <Switch>
                 <Route path={routes.hiragana.path} render={this.hiragana} />
-                <Route path={routes.katakana} render={this.katakana} />
+                <Route path={routes.katakana.path} render={this.katakana} />
                 <Route path={routes.numbers} render={this.numbers} />
                 <Route path={routes.about} render={this.about} />
                 <Redirect to={routes.hiragana.path} />

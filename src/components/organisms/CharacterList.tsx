@@ -28,7 +28,6 @@ export class CharacterList extends React.Component<Props> {
 
   renderGroup(group: CharacterGroup) {
     const cardList = group.characters.map((character: Character) => this.renderCharacter(character));
-
     return (
       <Grid container item direction="row" justify="space-between" spacing={16} key={group.name}>
         {cardList}

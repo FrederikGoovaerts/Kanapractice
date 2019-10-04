@@ -120,6 +120,27 @@ export class NavigationHeader extends React.Component<Props, State> {
               <Divider />
               <List>
                 <ListSubheader>{`Katakana`}</ListSubheader>
+                <LinkListItem
+                  title="Overview"
+                  key="overview"
+                  to={routes.katakana.path}
+                  icon={<ViewModuleIcon />}
+                  tooltip={overviewTooltip}
+                />
+                <LinkListItem
+                  title="Flash cards"
+                  key="flash-cards"
+                  to={routes.katakana.path + routes.katakana.subpathFlashCards}
+                  icon={<ViewCarouselIcon />}
+                  tooltip={flashCardTooltip}
+                />
+                <LinkListItem
+                  title="Quick Reading Practice"
+                  key="quick-reading"
+                  to={routes.katakana.path + routes.katakana.subpathQuickReading}
+                  icon={<KeyboardIcon />}
+                  tooltip={quickReadingTooltip}
+                />
               </List>
               <Divider />
               <List>

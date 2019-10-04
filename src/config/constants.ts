@@ -1,5 +1,5 @@
 export const environment = {
-  BASE_URL: '/',
+  BASE_URL: process.env.BASE_URL || '',
 };
 
 export const routes = {
@@ -9,7 +9,11 @@ export const routes = {
     subpathFlashCards: '/flash-cards',
     subpathQuickReading: '/quick-reading',
   },
-  katakana: '/katakana',
+  katakana: {
+    path: '/katakana',
+    subpathFlashCards: '/flash-cards',
+    subpathQuickReading: '/quick-reading',
+  },
   numbers: '/numbers',
   root: '/',
 };
