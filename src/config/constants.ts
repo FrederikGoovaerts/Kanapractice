@@ -7,6 +7,7 @@ export const routes = {
   hiragana: {
     path: '/hiragana',
     subpathFlashCards: '/flash-cards',
+    subpathQuickReading: '/quick-reading',
   },
   katakana: '/katakana',
   numbers: '/numbers',
