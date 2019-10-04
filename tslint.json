@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "no-submodule-imports": [true, "@material-ui", "redux-saga"],
+    "interface-name": false,
+    "no-console": false,
+    "no-namespace": false,
+    "member-access": false,
+    "jsx-boolean-value": ["never"]
+  }
+}

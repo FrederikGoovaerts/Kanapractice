@@ -1,0 +1,26 @@
+.flashCard-card {
+  height: 25em;
+  width: 15em;
+  display: flex;
+}
+
+.flashCard-contents {
+  padding: 1.5em 0;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.flashCard-kanji {
+  font-size: 7rem;
+}
+
+.flashCard-roumaji {
+  font-size: 5rem;
+}
+
+.flashCard-answer {
+  color: gray;
+}
