@@ -47,7 +47,7 @@ interface LinkListItemProps {
 }
 
 // TODO selected
-const getBaseRoute = (location: Location<any>) => location.pathname.substring(1);
+// const getBaseRoute = (location: Location<any>) => location.pathname.substring(1);
 
 const LinkListItem = ({ title, to, icon, tooltip }: LinkListItemProps) => (
   <ListItem {...{ to }} component={Link} button>

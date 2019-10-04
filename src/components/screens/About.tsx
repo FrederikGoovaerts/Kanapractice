@@ -18,6 +18,12 @@ export const About = () => (
       <div className="about-title">
         <Typography variant="h4">Changelog</Typography>
       </div>
+      <Typography variant="h5">0.4.0</Typography>
+      <ul>
+        <li>
+          <Typography>Added alternative hiragana (diacritical marks)</Typography>
+        </li>
+      </ul>
       <Typography variant="h5">0.3.0</Typography>
       <ul>
         <li>

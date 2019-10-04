@@ -1,6 +1,6 @@
 import './QuickReading.scss';
 
-import { Button, TextField, Typography } from '@material-ui/core';
+import { TextField, Typography } from '@material-ui/core';
 import * as moment from 'moment';
 import * as React from 'react';
 import { Link } from 'react-router-dom';

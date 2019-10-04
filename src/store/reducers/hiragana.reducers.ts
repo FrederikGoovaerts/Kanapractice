@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { hiraganaIds } from '../../resources/hiragana';
+import { baseHiraganaIds } from '../../resources/hiragana';
 import { hiraganaActions } from '../actions';
 import { createReducer } from './base';
 
@@ -8,7 +8,7 @@ export interface HiraganaState {
 }
 
 const hiraganaReducers = combineReducers<HiraganaState>({
-  selected: createReducer(hiraganaIds, hiraganaActions.names.setSelected),
+  selected: createReducer(baseHiraganaIds, hiraganaActions.names.setSelected),
 });
 
 export default hiraganaReducers;
