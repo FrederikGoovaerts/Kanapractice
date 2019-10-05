@@ -6,7 +6,7 @@ var config = {
   output: {
     filename: 'bundle.[hash].js',
     path: __dirname + '/build',
-    publicPath: "/",
+    publicPath: '/',
   },
 
   devtool: 'source-map',
@@ -23,19 +23,6 @@ var config = {
         test: /\.scss$/,
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }],
         include: /src/,
-      },
-      {
-        test: /\.less$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          {
-            loader: 'less-loader',
-            options: {
-              javascriptEnabled: true,
-            },
-          },
-        ],
       },
     ],
   },
