@@ -1,8 +1,8 @@
-import { ActionTypeMapping, ActionUnion, createAction } from "./base";
+import { ActionTypeMapping, ActionUnion, createAction } from './base';
 
 export enum names {
-  initialize = "INITIALIZE",
-  setInitialized = "SET_INITIALIZED",
+  initialize = 'APPLICATION__INITIALIZE',
+  setInitialized = 'APPLICATION__SET_INITIALIZED',
 }
 
 export const actions = {

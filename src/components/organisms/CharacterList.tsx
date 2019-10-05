@@ -28,9 +28,8 @@ export class CharacterList extends React.Component<Props> {
 
   renderGroup(group: CharacterGroup) {
     const cardList = group.characters.map((character: Character) => this.renderCharacter(character));
-
     return (
-      <Grid container item direction="row" justify="space-between" spacing={16} key={group.name}>
+      <Grid container item direction="row" justify="space-between" spacing={2} key={group.name}>
         {cardList}
       </Grid>
     );
@@ -40,7 +39,7 @@ export class CharacterList extends React.Component<Props> {
     return (
       <div className="characterList-container">
         <div className="characterList-innerContainer">
-          <Grid container direction="column" spacing={16}>
+          <Grid container direction="column" spacing={2}>
             {this.props.characters.map((group: CharacterGroup) => this.renderGroup(group))}
           </Grid>
         </div>

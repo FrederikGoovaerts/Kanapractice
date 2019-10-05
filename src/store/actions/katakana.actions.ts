@@ -1,7 +1,7 @@
 import { ActionTypeMapping, ActionUnion, createAction } from './base';
 
 export enum names {
-  setSelected = 'HIRAGANA__SET_SELECTED',
+  setSelected = 'KATAKANA__SET_SELECTED',
 }
 
 export const actions = {
