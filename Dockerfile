@@ -3,7 +3,7 @@ FROM node:8.8.1 as builder
 COPY . /app
 WORKDIR /app
 
-# The build process supposes the npm install command has already been run
+RUN npm install
 RUN npm run build
 
 # Output container
