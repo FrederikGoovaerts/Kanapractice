@@ -46,9 +46,6 @@ interface LinkListItemProps {
   tooltip?: string;
 }
 
-// TODO selected
-// const getBaseRoute = (location: Location<any>) => location.pathname.substring(1);
-
 const LinkListItem = ({ title, to, icon, tooltip }: LinkListItemProps) => (
   <ListItem {...{ to }} component={Link} button>
     <ListItemIcon>{icon}</ListItemIcon>
@@ -141,10 +138,6 @@ export class NavigationHeader extends React.Component<Props, State> {
                   icon={<KeyboardIcon />}
                   tooltip={quickReadingTooltip}
                 />
-              </List>
-              <Divider />
-              <List>
-                <ListSubheader>{`Numbers`}</ListSubheader>
               </List>
             </div>
           </div>
